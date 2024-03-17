@@ -1,0 +1,36 @@
+name: Test Action
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '**.yml'
+jobs:
+  deployment-lint:
+      runs-on: ubuntu-latest  
+      steps:
+        - name: Get Server
+           run: actions/checkout@v3
+        - name: Intall Dependencies
+           run: npm ci
+        - name: Lint
+           run: npm run lint
+  deployment-test:
+      runs-on: ubuntu-latest  
+      steps:
+        - name: Get Server
+           run: actions/checkout@v3
+        - name: Intall Dependencies
+           run: npm ci
+        - name: test
+           run: npm run test
+    deployment-build:
+      runs-on: ubuntu-latest  
+      steps:
+        - name: Get Server
+           run: actions/checkout@v3
+        - name: Intall Dependencies
+           run: npm ci
+        - name: build
+           run: npm run Build
+    
