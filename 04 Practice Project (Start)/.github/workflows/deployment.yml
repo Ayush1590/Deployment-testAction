@@ -1,10 +1,5 @@
 name: Test Action
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - '**.yml'
+on: push
 jobs:
   deployment-lint:
       runs-on: ubuntu-latest  
